@@ -30,8 +30,6 @@ migrate.log
 # Android related
 **/android/**/local.properties
 **/android/flutter_plugin_actions.json
-**/android/gradlew
-**/android/gradlew.bat
 **/android/.gradle
 **/android/app/local.properties
 **/android/app/flutter_bootstrap.gradle

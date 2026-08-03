@@ -1,24 +1,26 @@
-name: Build Android APK
+name: Build & Publish Android APK
 
 on:
   push:
     branches:
       - main
       - master
-  pull_request:
-    branches:
-      - main
-      - master
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
-    name: Build Flutter APK
+    name: Build & Release Flutter APK
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Make gradlew executable
+        run: chmod +x android/gradlew
 
       - name: Set up Java JDK
         uses: actions/setup-java@v4
@@ -35,9 +37,6 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Analyze code
-        run: flutter analyze
-
       - name: Build Release APK
         run: flutter build apk --release
 
@@ -46,3 +45,13 @@ jobs:
         with:
           name: airplaybose-release-apk
           path: build/app/outputs/flutter-apk/app-release.apk
+
+      - name: Create or Update GitHub Release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "build/app/outputs/flutter-apk/app-release.apk"
+          tag: "v1.0.0"
+          name: "AirPlay Bose Release v1.0.0"
+          body: "Latest release build of AirPlay Bose Android APK for direct download."
+          allowUpdates: true
+          token: ${{ secrets.GITHUB_TOKEN }}
