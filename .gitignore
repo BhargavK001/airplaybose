@@ -1,0 +1,40 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+migrate.log
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .flutter-plugins-dependencies file should contain a list of dependencies
+# of your plugins.
+.flutter-plugins-dependencies
+
+# Flutter/Dart/Pub related
+.dart_tool/
+.flutter-plugins
+.pub-cache/
+.pub/
+/build/
+
+# Android related
+**/android/**/local.properties
+**/android/flutter_plugin_actions.json
+**/android/gradlew
+**/android/gradlew.bat
+**/android/.gradle
+**/android/app/local.properties
+**/android/app/flutter_bootstrap.gradle
+**/android/app/flutter_bootstrap.properties
+**/android/app/flutter_bootstrap.gradle.kts
+**/android/app/flutter_bootstrap.properties.kts
