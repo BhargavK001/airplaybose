@@ -51,5 +51,6 @@ android {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:2.0.0"
     implementation 'org.jmdns:jmdns:3.5.8'
+    implementation 'org.slf4j:slf4j-nop:1.7.36'
     implementation 'org.bouncycastle:bcprov-jdk15on:1.70'
 }
